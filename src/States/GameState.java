@@ -25,7 +25,7 @@ public class GameState implements State {
 		float y = Game.HEIGHT - 64;
 		for(int i = 0; i < 10; i++) {
 			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
-			x+=70;
+			x+=64;
 		}
 		tiles.add(new Tile(250, 250, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
 		tiles.add(new Tile(400, 150, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 3, 1)));

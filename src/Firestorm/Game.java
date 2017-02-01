@@ -88,7 +88,7 @@ public class Game extends Canvas implements Runnable{
 		
 		//Art goes here
 		
-		g.setColor(Color.RED);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		stateManager.render(g2d);
 		

@@ -24,34 +24,38 @@ public class Tile {
 		
 		// Visual Bounds for collision
 		g.setColor(Color.RED);
-		g.draw(getTop());
+		//g.draw(getTop());
 		g.setColor(Color.BLUE);
-		g.draw(getBottom());
+		//g.draw(getBottom());
 		g.setColor(Color.MAGENTA);
-		g.draw(getLeft());
+		//g.draw(getLeft());
 		g.setColor(Color.ORANGE);
-		g.draw(getRight());
+		//g.draw(getRight());
 		
 	}
+	
+	//tried to make the collision suck less, 
+	//still needs a tweek but it is close enough to perfect for now
+	// 1-31-2017
 	
 	public Rectangle getBounds() {
 		return new Rectangle((int)x, (int)y, sprite.getWidth(), sprite.getHeight());
 	}
 	
 	public Rectangle getTop() {
-		return new Rectangle((int)x + 6, (int)y, sprite.getWidth() - 12, 4);
+		return new Rectangle((int)x - 1, (int)y - 3, sprite.getWidth(), 3);
 	}
 	
 	public Rectangle getBottom() {
-		return new Rectangle((int)x + 6, (int) y + sprite.getHeight() - 4, sprite.getWidth() - 12, 4);
+		return new Rectangle((int)x - 1, (int) y + sprite.getHeight() - 1, sprite.getWidth(), 3);
 	}
 	
 	public Rectangle getLeft() {
-		return new Rectangle((int)x, (int)y + 6, 4, sprite.getHeight() - 12);
+		return new Rectangle((int)x - 3, (int)y, 2, sprite.getHeight());
 	}
 
 	public Rectangle getRight() {
-		return new Rectangle((int) x + sprite.getWidth() - 4, (int)y + 6, 4, sprite.getHeight() - 12);
+		return new Rectangle((int) x + sprite.getWidth() - 1, (int)y -1, 3, sprite.getHeight());
 	}
 	
 }

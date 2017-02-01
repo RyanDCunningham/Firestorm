@@ -26,14 +26,8 @@ public abstract class Entity {
 	
 	public void render(Graphics2D g) {
 		sprite.render(g, x, y);
-		g.setColor(Color.RED);
-		g.draw(getTop());
-		g.setColor(Color.BLUE);
-		g.draw(getBottom());
-		g.setColor(Color.MAGENTA);
-		g.draw(getLeft());
-		g.setColor(Color.ORANGE);
-		g.draw(getRight()); 
+		g.setColor(Color.GREEN);
+		g.draw(getBounds()); 
 	}
 	
 	public Rectangle getBounds() {
@@ -41,19 +35,19 @@ public abstract class Entity {
 	}
 	
 	public Rectangle getTop() {
-		return new Rectangle((int)x + 6, (int)y, sprite.getWidth(), 4);
+		return new Rectangle((int)x, (int)y - 2, sprite.getWidth(), 4);
 	}
 	
 	public Rectangle getBottom() {
-		return new Rectangle((int)x + 6, (int) y + sprite.getHeight() - 4, sprite.getWidth() - 6, 4);
+		return new Rectangle((int)x, (int) y + sprite.getHeight() - 3, sprite.getWidth(), 4);
 	}
 	
 	public Rectangle getLeft() {
-		return new Rectangle((int)x, (int)y + 6, 4, sprite.getHeight() - 6);
+		return new Rectangle((int)x - 2, (int)y, 4, sprite.getHeight());
 	}
 
 	public Rectangle getRight() {
-		return new Rectangle((int) x + sprite.getWidth() - 4, (int)y + 6, 4, sprite.getHeight() - 6);
+		return new Rectangle((int) x + sprite.getWidth() - 3, (int)y, 4, sprite.getHeight());
 	}
 	
 }
