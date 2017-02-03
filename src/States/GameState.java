@@ -9,26 +9,49 @@ import Firestorm.Game;
 import Textures.Sprite;
 import Textures.SpriteSheet;
 import Textures.Texture;
-import world.Tile;
+import World.FloorTile;
+import World.Tile;
 
 public class GameState implements State {
 
 	private ArrayList<Entity> entities;
 	private ArrayList<Tile> tiles;
+	private ArrayList<FloorTile> floorTiles;
 	
 	@Override
 	public void init() {
 		entities = new ArrayList<Entity>();
 		tiles = new ArrayList<Tile>();
+		floorTiles = new ArrayList<FloorTile>();
 		new Player(new Sprite("rocks"), 100, 100, this);
 		float x = 0;
-		float y = Game.HEIGHT - 64;
-		for(int i = 0; i < 10; i++) {
-			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 1, 1)));
+		float y = 0;
+		for(int i = 0; i < 7; i++) {
+			for(int j = 0; j < 10; j++) {
+				floorTiles.add(new FloorTile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 4, 1)));
+				x+=64;
+			}
+			x=0;
+			y+=64;
+		}
+		for(int i = 0; i < 9; i++) {
+			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
 			x+=64;
 		}
+		for(int i = 0; i < 7; i++) {
+			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
+			y-=64;
+		}
+		for(int i = 0; i < 9; i++) {
+			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
+			x-=64;
+		}
+		for(int i = 0; i < 6; i++) {
+			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
+			y+=64;
+		}
 		tiles.add(new Tile(250, 250, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
-		tiles.add(new Tile(400, 150, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 3, 1)));
+		tiles.add(new Tile(400, 150, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
 	}
 
 	@Override
@@ -46,6 +69,8 @@ public class GameState implements State {
 
 	@Override
 	public void render(Graphics2D g) {
+		for(FloorTile ft : floorTiles)
+			ft.render(g);
 		for(Entity e : entities)
 			e.render(g);
 		for(Tile t : tiles)
@@ -71,6 +96,10 @@ public class GameState implements State {
 
 	public ArrayList<Tile> getTiles() {
 		return tiles;
+	}
+	
+	public ArrayList<FloorTile> getFloorTiles() {
+		return floorTiles;
 	}
 	
 }

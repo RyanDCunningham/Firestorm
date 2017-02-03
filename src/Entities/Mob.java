@@ -2,7 +2,7 @@ package Entities;
 
 import States.GameState;
 import Textures.Sprite;
-import world.Tile;
+import World.Tile;
 
 public abstract class Mob extends Entity {
 

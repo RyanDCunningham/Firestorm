@@ -1,4 +1,4 @@
-package world;
+package World;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -43,19 +43,19 @@ public class Tile {
 	}
 	
 	public Rectangle getTop() {
-		return new Rectangle((int)x - 1, (int)y - 3, sprite.getWidth(), 3);
+		return new Rectangle((int)x + 1, (int)y - 1, sprite.getWidth() - 2, 1);
 	}
 	
 	public Rectangle getBottom() {
-		return new Rectangle((int)x - 1, (int) y + sprite.getHeight() - 1, sprite.getWidth(), 3);
+		return new Rectangle((int)x + 1, (int) y + sprite.getHeight() + 1, sprite.getWidth() - 2, 1);
 	}
 	
 	public Rectangle getLeft() {
-		return new Rectangle((int)x - 3, (int)y, 2, sprite.getHeight());
+		return new Rectangle((int)x - 1, (int)y + 1, 1, sprite.getHeight() - 2);
 	}
 
 	public Rectangle getRight() {
-		return new Rectangle((int) x + sprite.getWidth() - 1, (int)y -1, 3, sprite.getHeight());
+		return new Rectangle((int) x + sprite.getWidth() + 1, (int)y + 1, 1, sprite.getHeight() - 2);
 	}
 	
 }
