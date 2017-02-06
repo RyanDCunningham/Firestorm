@@ -27,7 +27,7 @@ public abstract class Entity {
 	public void render(Graphics2D g) {
 		sprite.render(g, x, y);
 		g.setColor(Color.GREEN);
-		//g.draw(getBounds()); 
+		g.draw(getBounds()); 
 	}
 	
 	public Rectangle getBounds() {
@@ -35,19 +35,19 @@ public abstract class Entity {
 	}
 	
 	public Rectangle getTop() {
-		return new Rectangle((int)x, (int)y - 2, sprite.getWidth(), 4);
+		return new Rectangle((int)x + 1, (int)y - 1, sprite.getWidth() - 2, 1);
 	}
 	
 	public Rectangle getBottom() {
-		return new Rectangle((int)x, (int) y + sprite.getHeight() - 3, sprite.getWidth(), 4);
+		return new Rectangle((int)x + 1, (int) y + sprite.getHeight() + 1, sprite.getWidth() - 2, 1);
 	}
 	
 	public Rectangle getLeft() {
-		return new Rectangle((int)x - 2, (int)y, 4, sprite.getHeight());
+		return new Rectangle((int)x - 1, (int)y + 1, 1, sprite.getHeight() - 2);
 	}
 
 	public Rectangle getRight() {
-		return new Rectangle((int) x + sprite.getWidth() - 3, (int)y, 4, sprite.getHeight());
+		return new Rectangle((int) x + sprite.getWidth() + 1, (int)y + 1, 1, sprite.getHeight() - 2);
 	}
 	
 }

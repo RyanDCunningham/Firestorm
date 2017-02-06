@@ -3,6 +3,7 @@ package States;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import Entities.BlockTile;
 import Entities.Entity;
 import Entities.Player;
 import Firestorm.Game;
@@ -50,8 +51,8 @@ public class GameState implements State {
 			tiles.add(new Tile(x, y, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
 			y+=64;
 		}
-		tiles.add(new Tile(250, 250, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
-		tiles.add(new Tile(400, 150, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
+		entities.add(new BlockTile(250, 250, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1), this));
+		//tiles.add(new Tile(400, 150, new Sprite(new SpriteSheet(new Texture("terrain"), 64), 2, 1)));
 	}
 
 	@Override
@@ -93,6 +94,11 @@ public class GameState implements State {
 		entities.add(entity);
 		
 	}
+	
+	//public void addBlockTile(BlockTile tile) {
+	//	tiles.add(tile);
+		
+	//}
 
 	public ArrayList<Tile> getTiles() {
 		return tiles;
@@ -100,6 +106,10 @@ public class GameState implements State {
 	
 	public ArrayList<FloorTile> getFloorTiles() {
 		return floorTiles;
+	}
+	
+	public ArrayList<Entity> getEntity() {
+		return entities;
 	}
 	
 }

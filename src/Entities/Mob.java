@@ -12,6 +12,7 @@ public abstract class Mob extends Entity {
 		super(sprite, x, y, state);
 	}
 	
+
 	public void tick() {
 		move();
 	}
@@ -26,12 +27,12 @@ public abstract class Mob extends Entity {
 			Tile t = state.getTiles().get(i);
 			if(getBounds().intersects(t.getTop()) && dy > 0) {
 				dy = 0;
-				System.out.println("Down");
+				//System.out.println("Down");
 				return true;
 			}
 			if(getBounds().intersects(t.getBottom()) && dy < 0) {
 				dy = 0;
-				System.out.println("Up");
+				//System.out.println("Up");
 				return true;
 			}
 		}
@@ -44,12 +45,12 @@ public abstract class Mob extends Entity {
 			Tile t = state.getTiles().get(i);
 			if(getBounds().intersects(t.getRight()) && dx < 0) {
 				dx = -1;
-				System.out.println("Left");
+				//System.out.println("Left");
 				return true;
 			}
 			if(getBounds().intersects(t.getLeft()) && dx > 0) {
 				dx = -1;
-				System.out.println("Right");
+				//System.out.println("Right");
 				return true;
 			}	
 		}
