@@ -27,7 +27,7 @@ public abstract class Entity {
 	public void render(Graphics2D g) {
 		sprite.render(g, x, y);
 		g.setColor(Color.GREEN);
-		//g.draw(getBounds()); 
+		g.draw(getBounds()); 
 	}
 	
 	public Rectangle getBounds() {

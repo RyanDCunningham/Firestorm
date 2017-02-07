@@ -23,13 +23,11 @@ public class Tile {
 		sprite.render(g, x, y);
 		
 		// Visual Bounds for collision
-		g.setColor(Color.RED);
 		//g.draw(getTop());
-		g.setColor(Color.BLUE);
-		//g.draw(getBottom());
-		g.setColor(Color.MAGENTA);
+		//g.setColor(Color.BLUE);
+		//g.setColor(Color.MAGENTA);
 		//g.draw(getLeft());
-		g.setColor(Color.ORANGE);
+		//g.setColor(Color.ORANGE);
 		//g.draw(getRight());
 		
 	}
