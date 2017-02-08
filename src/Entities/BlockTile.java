@@ -1,13 +1,10 @@
 package Entities;
 
-import java.util.ArrayList;
-
 import Entities.Entity;
 import Entities.Mob;
 import States.GameState;
 import Textures.Sprite;
 import World.Tile;
-
 
 public class BlockTile extends Mob {
 	
